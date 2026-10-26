@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proverbs About Women</title>
+<meta name="description" content="Interactive exercises: English and Belarusian proverbs about women (Appendix A).">
+<style>
+:root{
+  --bg:#f6f3ec; --card:#fffdf8; --ink:#1f1d1a; --muted:#6b665d; --line:#e2dccf;
+  --accent:#8a2c2c; --accent-soft:#f3e3df; --ok:#2f6b3a; --ok-soft:#e1efe2; --bad:#a23b2a; --bad-soft:#f6e0db;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16140f; --card:#211e18; --ink:#ece6da; --muted:#a49d90; --line:#3a352c;
+    --accent:#e09a8a; --accent-soft:#3a2622; --ok:#8fcf98; --ok-soft:#1f3322; --bad:#f08f7c; --bad-soft:#3d221d;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Georgia,"Times New Roman",serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 64px}
+header{padding:12px 0 8px}
+.kicker{font:600 12px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:28px;line-height:1.2;margin:8px 0 10px}
+.sub{color:var(--muted);margin:0 0 14px;font-size:15px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:6px 0 12px;position:sticky;top:0;background:var(--bg);z-index:2;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;font:600 14px/1 -apple-system,system-ui,sans-serif;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:9px 13px}
+nav a{display:flex;align-items:center;gap:6px}
+nav a::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--muted)}
+nav a.done{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+nav a.done::before{background:var(--ok);border-color:var(--ok)}
+.progress{display:flex;align-items:center;gap:12px;margin:0 0 4px}
+.bar{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.label{font:600 12px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.btn.done{background:var(--ok)}
+section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px;margin:14px 0;scroll-margin-top:60px}
+h2{font-size:21px;margin:0 0 6px}
+.task{color:var(--muted);margin:0 0 14px;font-size:15.5px}
+.item{padding:12px 0;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0}
+.be{font-style:italic}
+.lit{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.row .txt{flex:1 1 260px}
+select,input[type=text],textarea{font:16px/1.4 -apple-system,system-ui,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 10px}
+select{min-width:76px}
+input[type=text]{width:9.5em;padding:6px 9px}
+textarea{width:100%;min-height:76px;resize:vertical;margin-top:8px}
+.opts{display:flex;gap:6px}
+.opt{font:600 15px/1 -apple-system,system-ui,sans-serif;min-width:46px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opt[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.ok select,.ok input,.ok .opt[aria-pressed=true]{border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
+.bad select,.bad input,.bad .opt[aria-pressed=true]{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.fb{display:none;font-size:14.5px;margin-top:6px}
+.ok .fb,.bad .fb{display:block}
+.ok .fb{color:var(--ok)} .bad .fb{color:var(--bad)}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.bank span{font:600 14px/1 -apple-system,system-ui,sans-serif;border:1px dashed var(--accent);color:var(--accent);border-radius:8px;padding:7px 10px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.btn{font:600 15px/1 -apple-system,system-ui,sans-serif;border:0;border-radius:10px;padding:12px 16px;background:var(--accent);color:var(--card);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.score{font:600 15px/1.3 -apple-system,system-ui,sans-serif}
+.note{display:none;margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--accent-soft);font-size:15.5px}
+.note.show{display:block}
+.pairs{display:grid;gap:10px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+ol{margin:8px 0 0;padding-left:22px}
+li{margin:4px 0}
+.groups{font-size:14.5px;color:var(--muted);margin:0 0 10px;padding-left:20px}
+footer{color:var(--muted);font-size:13.5px;text-align:center;margin-top:28px}
+@media (max-width:480px){h1{font-size:24px}.pair{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">Appendix A · Interactive version</div>
+  <h1>Gender Stereotypes in English and Belarusian Proverbs About Women</h1>
+  <p class="sub">Exercises for English lessons. Klimkov M., grade IX, Secondary School No. 15 of Mogilev, 2026.</p>
+  <div class="progress"><div class="bar"><span id="bar"></span></div><span id="progress" class="score"></span></div>
+</header>
+<nav id="nav"></nav>
+<main id="app"></main>
+<footer>Your answers stay on this device only.</footer>
+</div>
+<script>
+const EX = [
+ {id:'e1', title:'1. Match the Proverbs', type:'select',
+  task:'Match the English proverb (1–5) with its closest Belarusian equivalent (A–E).',
+  legend:[['A','Баба хітрэйша за чорта.'],['B','Без гаспадыні хата плача.'],['C','Дзе баба — там кірмаш.'],['D','Муж і жонка — найлепшая сполка.'],['E','Не бяры жонку багатую, бяры ласкавую.']],
+  options:['A','B','C','D','E'],
+  items:[['A good wife makes a good husband.','D'],['Women in mischief are wiser than men.','A'],['A woman’s work is never done.','B'],['One tongue is enough for a woman.','C'],['Beauty is only skin deep.','E']],
+  after:'Not one of these pairs says exactly the same thing. For each pair, say what changes when you cross from one language to the other: the image? who is responsible? the evaluation?'},
+ {id:'e2', title:'2. True or False?', type:'buttons', opts:['T','F'],
+  task:'Read the statements. Choose T (true) or F (false). Correct the false statements.',
+  items:[['Both English and Belarusian proverbs say that women talk too much.','T',''],
+         ['Belarusian proverbs never compare women to the devil.','F','Belarusian proverbs frequently compare women to the devil (чорт).'],
+         ['The English proverb “The hand that rocks the cradle rules the world” praises the power of mothers.','T','It is quoted in the Conclusion as a broader English example.'],
+         ['Belarusian proverbs put more emphasis on a woman’s beauty than on her ability to work.','F','Belarusian proverbs emphasise practical work more than beauty.'],
+         ['The proverb “A fair face may hide a foul heart” means that beautiful women are always kind.','F','It means the opposite: a beautiful face can hide a bad character.']]},
+ {id:'e3', title:'3. Discuss in Pairs', type:'discuss',
+  task:'Work with a partner. Choose one pair of proverbs and discuss the questions.',
+  pairs:[['Silence is a woman’s best garment.','Бабіна дарога — ад печы да парога.'],['A woman’s work is never done.','Без гаспадыні хата плача.'],['Who has a woman has an eel by the tail.','Ці баба, ці дзябал — усё роўна.']],
+  questions:['What stereotype about women does each proverb express?','Do you agree with the proverb? Why or why not?','Do you think people still use these proverbs today?','How has the role of women changed since these proverbs were created?','Why is it important to study old proverbs, even if we disagree with them?']},
+ {id:'e4', title:'4. Create Your Own Proverb', type:'write',
+  task:'Write your own modern proverb about women. It should reflect how you see the role of women in 2026 — the Year of the Belarusian Woman.',
+  example:'A woman who reads is a woman who leads.'},
+ {id:'e5', title:'5. Complete the Proverbs', type:'gap',
+  task:'Complete the English proverbs with the words from the box.',
+  bank:['tail','deep','garment','husband','done','scorned'],
+  items:[['Silence is a woman’s best','garment','.'],['A woman’s work is never','done','.'],['Hell hath no fury like a woman','scorned','.'],['Beauty is only skin','deep','.'],['Who has a woman has an eel by the','tail','.'],['A good wife makes a good','husband','.']]},
+ {id:'e6', title:'6. Sort the Proverbs', type:'select',
+  task:'Decide which semantic group each proverb belongs to.',
+  groups:['appearance and the criteria for choosing a woman','speech and silence','marriage and family role','hard work and household','character and morality'],
+  options:['1','2','3','4','5'],
+  items:[['Women will have the last word.','2'],['Бабіна дарога — ад печы да парога.','4'],['He that has a wife has a master.','3'],['І чорт бабы баіцца.','5'],['Never choose your women or your linen by candlelight.','1'],['Дзе баба — там кірмаш.','2'],['A woman’s counsel is cold.','5'],['Жонка — не рукаво, не адпораш.','3'],['Якая гаспадыня, такі і парадак.','4'],['Не выбірай дзеўку ў карагодзе, а выбірай ў агародзе.','1']],
+  after:'Which group was the easiest to recognise, and why?'},
+ {id:'e7', title:'7. From Words to Meaning', type:'meaning',
+  task:'Explain the meaning of each Belarusian proverb in English. Can you think of an English proverb with a similar idea?',
+  items:[['Хоць за вала, абы дома не была.','Marry even an ox, as long as you do not stay at home.','Any marriage is better than none.'],
+         ['Баба з калёс — калёсам лягчэй.','When a woman gets off the cart, the wheels have it easier.','A woman is seen as a burden; without her things go better.'],
+         ['Першая жонка ад Бога, другая ад людзей, а трэцяя ад чорта.','The first wife is from God, the second from people, the third from the devil.','Only the first marriage is sacred.'],
+         ['Без гаспадыні хата плача.','Without a housewife, the house cries.','A home cannot function without a woman (compare: A woman’s work is never done).']]},
+ {id:'e8', title:'8. Positive or Negative?', type:'buttons', opts:['+','−'],
+  task:'Does each proverb give a positive (+) or a negative (−) image of a woman?',
+  items:[['A good wife makes a good husband.','+',''],['Муж і жонка — найлепшая сполка.','+',''],['One tongue is enough for a woman.','−',''],['Ці баба, ці дзябал — усё роўна.','−',''],['A woman’s work is never done.','+','Sympathy for the woman’s labour.'],['Не бяры жонку багатую, бяры ласкавую.','+',''],['A whistling woman and a crowing hen are neither fit for God nor men.','−',''],['Баба з калёс — калёсам лягчэй.','−','']],
+  after:'Count the answers for each language. Is a list of eight proverbs enough to say that one language is “more negative” than the other? Why or why not?'},
+ {id:'e9', title:'9. Mini-Project “Proverbs in My Family”', type:'project',
+  task:'Ask your parents or grandparents which proverbs about women they know and use. Write down three of them, translate them into English and decide which semantic group each belongs to. Present your findings to the class in 1–2 minutes.',
+  questions:['Which proverbs about women do you remember from your childhood?','Who used them, and in what situations?','Do you still use them today? Why or why not?']}
+];
+
+const isBe = s => /[а-яёіў]/i.test(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const app = document.getElementById('app'), nav = document.getElementById('nav');
+const store = {get(k){try{return JSON.parse(localStorage.getItem('prov-'+k))}catch(e){return null}}, set(k,v){try{localStorage.setItem('prov-'+k,JSON.stringify(v))}catch(e){}}};
+
+function prov(s){ return `<span class="${isBe(s)?'be':''}">${esc(s)}</span>`; }
+
+EX.forEach(ex => {
+  nav.insertAdjacentHTML('beforeend', `<a href="#${ex.id}" id="n-${ex.id}">Ex. ${ex.title.split('.')[0]}</a>`);
+  let h = `<section id="${ex.id}"><h2>${esc(ex.title)}</h2><p class="task">${esc(ex.task)}</p>`;
+  if (ex.legend) h += `<div class="pairs" style="margin-bottom:10px">${ex.legend.map(([k,v])=>`<div><b>${k}</b> — ${prov(v)}</div>`).join('')}</div>`;
+  if (ex.groups) h += `<ol class="groups">${ex.groups.map(g=>`<li>${esc(g)}</li>`).join('')}</ol>`;
+  if (ex.type === 'select') {
+    h += ex.items.map(([q],i)=>`<div class="item" data-i="${i}"><div class="row"><div class="txt">${i+1}. ${prov(q)}</div>
+      <select aria-label="Answer ${i+1}"><option value="">—</option>${ex.options.map(o=>`<option>${o}</option>`).join('')}</select></div><div class="fb"></div></div>`).join('');
+  } else if (ex.type === 'buttons') {
+    h += ex.items.map(([q],i)=>`<div class="item" data-i="${i}"><div class="row"><div class="txt">${i+1}. ${prov(q)}</div>
+      <div class="opts">${ex.opts.map(o=>`<button type="button" class="opt" aria-pressed="false" data-v="${o}">${o}</button>`).join('')}</div></div><div class="fb"></div></div>`).join('');
+  } else if (ex.type === 'gap') {
+    h += `<div class="bank">${ex.bank.map(w=>`<span>${w}</span>`).join('')}</div>`;
+    h += ex.items.map(([a,,b],i)=>`<div class="item" data-i="${i}">${i+1}. ${esc(a)} <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Gap ${i+1}">${b}<div class="fb"></div></div>`).join('');
+  } else if (ex.type === 'meaning') {
+    h += ex.items.map(([be,lit],i)=>`<div class="item" data-i="${i}">${i+1}. ${prov(be)}<span class="lit">${esc(lit)}</span><textarea placeholder="The meaning is…"></textarea><div class="note" data-sample>${esc(ex.items[i][2])}</div></div>`).join('');
+  } else if (ex.type === 'discuss') {
+    h += `<div class="pairs">${ex.pairs.map(([en,be])=>`<div class="pair"><div>${prov(en)}</div><div>${prov(be)}</div></div>`).join('')}</div>`;
+    h += `<p style="margin:16px 0 0"><b>Questions for discussion:</b></p><ol>${ex.questions.map(q=>`<li>${esc(q)}</li>`).join('')}</ol>`;
+  } else if (ex.type === 'write') {
+    h += `<textarea data-write placeholder="My proverb…"></textarea><p class="task" style="margin-top:10px"><i>Example: ${esc(ex.example)}</i></p>`;
+  } else if (ex.type === 'project') {
+    h += `<p style="margin:0"><b>Questions for the interview:</b></p><ol>${ex.questions.map(q=>`<li>${esc(q)}</li>`).join('')}</ol>`;
+  }
+  const checkable = ['select','buttons','gap'].includes(ex.type);
+  if (checkable) h += `<div class="actions"><button class="btn" data-check>Check</button><button class="btn ghost" data-reset>Reset</button><span class="score" aria-live="polite"></span></div>`;
+  if (ex.type === 'meaning') h += `<div class="actions"><button class="btn" data-show>Show sample answers</button></div>`;
+  if (['discuss','project'].includes(ex.type)) h += `<div class="actions"><button class="btn ghost" data-mark>Mark as done</button></div>`;
+  if (ex.after) h += `<div class="note" data-after><span class="label">Follow-up question</span>${esc(ex.after)}</div>`;
+  h += `</section>`;
+  app.insertAdjacentHTML('beforeend', h);
+  wire(ex);
+});
+
+// Статус «выполнено»: проверяемые — всё верно; письменные — поле заполнено; обсуждение и проект — кнопка.
+const done = store.get('done') || {};
+function setDone(id, v){
+  done[id] = !!v; store.set('done', done);
+  document.getElementById('n-'+id).classList.toggle('done', !!v);
+  const n = EX.filter(e => done[e.id]).length;
+  document.getElementById('progress').textContent = `${n} / ${EX.length} done`;
+  document.getElementById('bar').style.width = (100*n/EX.length) + '%';
+  const m = document.querySelector(`#${id} [data-mark]`);
+  if (m){ m.textContent = v ? 'Done' : 'Mark as done'; m.classList.toggle('ghost', !v); m.classList.toggle('done', !!v); }
+}
+
+function wire(ex){
+  const sec = document.getElementById(ex.id);
+  const items = [...sec.querySelectorAll('.item')];
+  const saved = store.get(ex.id) || {};
+  const val = (el,i) => {
+    if (ex.type==='select') return el.querySelector('select').value;
+    if (ex.type==='gap') return el.querySelector('input').value.trim().toLowerCase();
+    if (ex.type==='buttons') { const b = el.querySelector('.opt[aria-pressed=true]'); return b ? b.dataset.v : ''; }
+  };
+  const save = () => { const s = {}; items.forEach((el,i)=>{ const v = ex.type==='meaning' ? el.querySelector('textarea').value : val(el,i); if (v) s[i]=v; }); if (ex.type==='write') s.w = sec.querySelector('[data-write]').value; store.set(ex.id, s); };
+  items.forEach((el,i)=>{
+    const v = saved[i];
+    if (ex.type==='select'){ const s=el.querySelector('select'); if(v) s.value=v; s.onchange=()=>{el.className='item';save();}; }
+    if (ex.type==='gap'){ const s=el.querySelector('input'); if(v) s.value=v; s.oninput=()=>{el.className='item';save();}; }
+    if (ex.type==='meaning'){ const s=el.querySelector('textarea'); if(v) s.value=v; s.oninput=()=>{ save(); setDone(ex.id, items.every(x=>x.querySelector('textarea').value.trim())); }; }
+    if (ex.type==='buttons'){ el.querySelectorAll('.opt').forEach(b=>{ if(v===b.dataset.v) b.setAttribute('aria-pressed','true');
+      b.onclick=()=>{ el.querySelectorAll('.opt').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); el.className='item'; save(); }; }); }
+  });
+  const w = sec.querySelector('[data-write]'); if (w){ w.value = saved.w || ''; w.oninput = () => { save(); setDone(ex.id, w.value.trim()); }; }
+  const chk = sec.querySelector('[data-check]');
+  if (chk) chk.onclick = () => {
+    let ok = 0;
+    items.forEach((el,i)=>{
+      const good = val(el,i) === ex.items[i][1];
+      ok += good;
+      el.className = 'item ' + (good ? 'ok' : 'bad');
+      const note = ex.type==='buttons' && ex.items[i][2] ? ' ' + ex.items[i][2] : '';
+      el.querySelector('.fb').textContent = good ? 'Correct.' + note : (val(el,i) ? 'Not quite, try again.' : 'No answer yet.');
+    });
+    sec.querySelector('.score').textContent = `${ok} / ${items.length}`;
+    const after = sec.querySelector('[data-after]'); if (after && ok === items.length) after.classList.add('show');
+    setDone(ex.id, ok === items.length);
+  };
+  const rst = sec.querySelector('[data-reset]');
+  if (rst) rst.onclick = () => {
+    items.forEach(el=>{ el.className='item'; const s=el.querySelector('select,input'); if(s) s.value=''; el.querySelectorAll('.opt').forEach(b=>b.setAttribute('aria-pressed','false')); });
+    sec.querySelector('.score').textContent=''; const a=sec.querySelector('[data-after]'); if(a) a.classList.remove('show');
+    setDone(ex.id, false); store.set(ex.id,{});
+  };
+  const show = sec.querySelector('[data-show]');
+  if (show) show.onclick = () => { sec.querySelectorAll('[data-sample]').forEach(n=>n.classList.toggle('show')); };
+  const mark = sec.querySelector('[data-mark]');
+  if (mark) mark.onclick = () => setDone(ex.id, !done[ex.id]);
+  if (!chk && sec.querySelector('[data-after]')) sec.querySelector('[data-after]').classList.add('show');
+}
+EX.forEach(e => { setDone(e.id, done[e.id]); const c = document.querySelector(`#${e.id} [data-check]`); if (done[e.id] && c) c.click(); });
+</script>
+</body>
+</html>
